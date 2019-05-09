@@ -1,0 +1,2 @@
+# tomcat_datasource_auto_encryption
+用于tomcat启动时，将配置的数据源用户名和密码自动加密
