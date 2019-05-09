@@ -69,7 +69,7 @@ datasource_test.xml:
 
 ### 2.3 修改启动脚本
 
-打开start.sh文件
+打开startup.sh文件
 
 在第二行开始添加如下
 
