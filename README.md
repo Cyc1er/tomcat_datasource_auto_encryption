@@ -20,7 +20,8 @@
 .
 .
 
-```<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="root" password="1qaz2wsx" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://212.64.24.151:9033/test"/>```
+```<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" 
+factory="com.eproe.tomcat.datasource.decryption.EncryptedDBCPDataSourceFactory"maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="root" password="1qaz2wsx" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://212.64.24.151:9033/test"/>```
 
 .
 .
@@ -32,29 +33,28 @@
 
 context.xml ：
 
-```<?xml version="1.0" encoding="UTF-8"?>  ``` 
+<?xml version="1.0" encoding="UTF-8"?>
 
 ```
 <!DOCTYPE Context [<!ENTITY datasource_test SYSTEM "datasource_test.xml">]>
 ```
+.
+.
+.
 
-.
-.
-.
 &datasource_test;
+
 .
 .
 .
 
-```</Context>```
+</Context>
 
-datasource_test.xml:
+#### datasource_test.xml:
 
-```<?xml version="1.0" encoding="UTF-8"?>```
+<?xml version="1.0" encoding="UTF-8"?>
 
-```<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="root" password="1qaz2wsx" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://212.64.24.151:9033/test"/>```
-
-
+<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" factory="com.eproe.tomcat.datasource.decryption.EncryptedDBCPDataSourceFactory"maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="root" password="1qaz2wsx" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://212.64.24.151:9033/test"/>
 
 <i>其中:</i>
 
@@ -63,13 +63,13 @@ datasource_test.xml:
     
 ### 2.2 添加jar包
 
-将eproe-tomcat-datasource-encryption.jar、eproe-tomcat-datasource-decryption.jar和commons-codec-1.9.jar
+将eproe-tomcat-datasource-encryption.jar、eproe-tomcat-datasource-decryption.jar。无需commons-codec-1.9.jar
 
 放入$TOMCAT_HOME/lib/中
 
 ### 2.3 修改启动脚本
 
-打开startup.sh文件
+打开start.sh文件
 
 在第二行开始添加如下
 
